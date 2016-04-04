@@ -1,0 +1,22 @@
+{{#unless isEditable}}
+  <h4>Storage: {{food.storage}}</h4>
+  <p> Disposed by {{food.disposal}} </p>
+  <p>Category: {{food.category}}</p>
+  <p>name: {{food.name}}</p>
+  <p>description: {{food.description}}</p>
+  <p>purchased date: {{food.purchasedDate}}</p>
+  <p>expiration date: {{food.expirationDate}}</p>
+  <p>remind date: {{food.remindDate}}</p>
+{{else}}
+  <h4>{{input value=food.storage}}</h4>
+  <h4>Storage: {{input value=food.storage}}</h4>
+  <p> Disposed by {{input value=food.disposal}} </p>
+  <p>Category: {{input value=food.category}}</p>
+  <p>name: {{input value=food.name}}</p>
+  <p>description: {{input value=food.description}}</p>
+  <p>purchased date: {{input value=food.purchasedDate}}</p>
+  <p>expiration date: {{input value=food.expirationDate}}</p>
+  <p>remind date: {{input value=food.remindDate}}</p>
+  <button {{action 'updateFood'}}>EDIT</button>
+  <button {{action 'destroyFood'}}>DELETE</button>
+{{/unless}}
