@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -9,6 +8,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   purchasedDate: DS.attr('date'),
   expirationDate: DS.attr('date'),
-  remindDate: DS.attr('date'),
-
+  remindDate: DS.attr('date')
 });
