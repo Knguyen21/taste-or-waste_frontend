@@ -15,6 +15,7 @@ Router.map(function () {
     this.route('freezer');
     this.route('fridge');
     this.route('pantry');
+    this.route('disposal');
   });
 });
 
