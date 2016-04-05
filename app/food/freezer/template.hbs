@@ -1,0 +1,6 @@
+{{#each model.food as |eachFood|}}
+  {{freezer-snippet food=eachFood
+      routeUpdateFood='updateFood'
+      routeDestroyFood='destroyFood'
+  }}
+{{/each}}
