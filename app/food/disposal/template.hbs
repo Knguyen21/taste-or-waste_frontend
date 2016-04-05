@@ -1,0 +1,14 @@
+<h3>Ate</h3>
+{{#each model.food as |eachFood|}}
+  {{ate-snippet food=eachFood}}
+{{/each}}
+
+<h3>Trash</h3>
+{{#each model.food as |eachFood|}}
+  {{disposal-snippet food=eachFood}}
+{{/each}}
+
+<h3>Donate</h3>
+{{#each model.food as |eachFood|}}
+  {{donate-snippet food=eachFood}}
+{{/each}}
