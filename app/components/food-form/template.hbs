@@ -1,6 +1,12 @@
-<h5> Add Your Food </h5>
+
 <div>
-  {{input placeholder="fridge" value=form.storage}}
+  <h5> Storage </h5>
+  <select name="storage" {{action "selectValue" on="change"}}>
+      <option value="">Please choose storage</option>
+      <option class="storage" value=freezer>freezer</option>
+      <option class="storage" value=fridge>fridge</option>
+      <option class="storage" value=pantry>pantry</option>
+  </select>
   {{input placeholder='Disposal' value=form.disposal}}
   {{input placeholder='Category' value=form.category}}
   {{input placeholder='Name' value=form.name}}
