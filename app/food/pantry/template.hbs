@@ -1,0 +1,7 @@
+{{food-form routeCreateFood='createFood'}}
+{{#each model.food as |eachFood|}}
+  {{pantry-snippet food=eachFood
+      routeUpdateFood='updateFood'
+      routeDestroyFood='destroyFood'
+  }}
+{{/each}}
