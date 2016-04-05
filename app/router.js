@@ -11,6 +11,10 @@ Router.map(function () {
   this.route('change-password');
   this.route('users');
   this.route('foods');
+  this.route('food', function() {
+    this.route('freezer');
+    this.route('fridge');
+  });
 });
 
 export default Router;
