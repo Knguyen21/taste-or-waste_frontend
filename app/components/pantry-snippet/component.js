@@ -11,9 +11,9 @@ export default Ember.Component.extend({
     destroyFood: function(){
       console.log('Component Action : destroyFood');
       this.sendAction('routeDestroyFood', this.get('food'));
+    },
+    editClick: function(){
+      this.toggleProperty('isEditable');
     }
-  },
-  doubleClick: function(){
-    this.toggleProperty('isEditable');
   }
 });

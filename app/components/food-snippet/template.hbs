@@ -5,9 +5,11 @@
     <p>Category: {{food.category}}</p>
     <p>name: {{food.name}}</p>
     <p>description: {{food.description}}</p>
-    <p>purchased date: {{food.purchasedDate}}</p>
-    <p>expiration date: {{food.expirationDate}}</p>
-    <p>remind date: {{food.remindDate}}</p>
+    <p>purchased date: {{moment-format food.purchasedDate "MM/DD/YYYY"}}</p>
+    <p>expiration date: {{moment-format food.expirationDate "MM/DD/YYYY"}}</p>
+    <p>remind date: {{moment-format food.remindDate "MM/DD/YYYY"}}</p>
+    <button {{action 'editClick'}}>EDIT</button>
+    <button {{action 'destroyFood'}}>DELETE</button>
     <br>
     <br>
   {{else}}
@@ -19,8 +21,9 @@
     <p>purchased date: {{input value=food.purchasedDate}}</p>
     <p>expiration date: {{input value=food.expirationDate}}</p>
     <p>remind date: {{input value=food.remindDate}}</p>
-    <button {{action 'updateFood'}}>EDIT</button>
-    <button {{action 'destroyFood'}}>DELETE</button>
+    <button {{action 'editClick'}}>Cancel</button>
+    <button {{action 'updateFood'}}>Update my food!</button>
+
     <br>
   {{/unless}}
   {{else}}

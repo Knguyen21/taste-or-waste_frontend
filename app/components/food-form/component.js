@@ -9,9 +9,13 @@ export default Ember.Component.extend({
       this.set('form', {});
     },
     selectValue () {
-    this.set('storage', Ember.$('select').val());
-    console.log(this)
+    this.set('form.storage', Ember.$('select').val());
+    console.log(this);
   },
+  dateValue () {
+  this.set('form.storage', Ember.$('select').val());
+  console.log(this);
+},
   }
 
 });

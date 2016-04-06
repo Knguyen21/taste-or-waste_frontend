@@ -1,3 +1,5 @@
+<h3>{{#link-to "foods"}}Enter Food Item{{/link-to}}</h3>
+<br>
 {{#each model.food as |eachFood|}}
   {{freezer-snippet food=eachFood
       routeUpdateFood='updateFood'
