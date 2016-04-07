@@ -1,14 +1,5 @@
-<h3>Ate</h3>
-{{#each model.food as |eachFood|}}
-  {{ate-snippet food=eachFood}}
-{{/each}}
+{{disposal-list foods=model.food disposalType='ate'}}
 
-<h3>Trash</h3>
-{{#each model.food as |eachFood|}}
-  {{disposal-snippet food=eachFood}}
-{{/each}}
+{{disposal-list foods=model.food disposalType='trash'}}
 
-<h3>Donate</h3>
-{{#each model.food as |eachFood|}}
-  {{donate-snippet food=eachFood}}
-{{/each}}
+{{disposal-list foods=model.food disposalType='donate'}}

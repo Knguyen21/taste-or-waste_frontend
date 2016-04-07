@@ -1,0 +1,4 @@
+<h3>{{listTitle}} : {{filteredFoods.length}}</h3>
+{{#each filteredFoods as |eachFood|}}
+  {{disposal-snippet food=eachFood}}
+{{/each}}
