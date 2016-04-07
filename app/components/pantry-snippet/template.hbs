@@ -27,7 +27,13 @@
       <br>
     {{/unless}}
     {{else}}
-      <h4>Storage: {{input value=food.storage}}</h4>
+    <h5> Storage </h5>
+    <select name="storage" on="change">
+        <option value="">Please choose storage</option>
+        <option class="storage" value=freezer>freezer</option>
+        <option class="storage" value=fridge>fridge</option>
+        <option class="storage" value=pantry>pantry</option>
+    </select>
       <p> Disposed by {{input value=food.disposal}} </p>
       <p>name: {{input value=food.name}}</p>
       <p>description: {{input value=food.description}}</p>

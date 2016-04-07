@@ -16,7 +16,7 @@ export default Ember.Component.extend({
   actions: {
     createFood: function(){
       console.log('Component Action : createFood');
-      debugger;
+
       this.sendAction('routeCreateFood', this.get('foodProperties'));
       this.set('form', {});
     },
