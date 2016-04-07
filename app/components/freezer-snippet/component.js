@@ -7,6 +7,7 @@ export default Ember.Component.extend({
       console.log('Component Action : updateFood');
       this.sendAction('routeUpdateFood', this.get('food'));
       this.set('isEditable', false);
+      this.set('isDispose', false);
     },
     destroyFood: function(){
       console.log('Component Action : destroyFood');
@@ -14,6 +15,12 @@ export default Ember.Component.extend({
     },
     editClick: function(){
       this.toggleProperty('isEditable');
+    },
+    disposeClick: function(){
+      this.toggleProperty('isDispose');
+    },
+    selectValue () {
+      this.set('food.disposal', Ember.$('select').val());
     }
   }
 });

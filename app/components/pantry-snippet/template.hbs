@@ -1,28 +1,40 @@
 {{#if (eq food.storage "pantry")}}
   {{#unless isEditable}}
-    <h4>Storage: {{food.storage}}</h4>
-    <p> Disposed by {{food.disposal}} </p>
-    <p>Category: {{food.category}}</p>
-    <p>name: {{food.name}}</p>
-    <p>description: {{food.description}}</p>
-    <p>purchased date: {{moment-format food.purchasedDate "MM/DD/YYYY"}}</p>
-    <p>expiration date: {{moment-format food.expirationDate "MM/DD/YYYY"}}</p>
-    <p>remind date: {{moment-format food.remindDate "MM/DD/YYYY"}}</p>
-    <button {{action 'editClick'}}>EDIT</button>
-    <button {{action 'destroyFood'}}>DELETE</button>
-    <br>
-    <br>
-  {{else}}
-    <h4>Storage: {{input value=food.storage}}</h4>
-    <p> Disposed by {{input value=food.disposal}} </p>
-    <p>Category: {{input value=food.category}}</p>
-    <p>name: {{input value=food.name}}</p>
-    <p>description: {{input value=food.description}}</p>
-    <p>purchased date: {{input value=food.purchasedDate}}</p>
-    <p>expiration date: {{input value=food.expirationDate}}</p>
-    <p>remind date: {{input value=food.remindDate}}</p>
-    <button {{action 'editClick'}}>Cancel</button>
-    <button {{action 'updateFood'}}>Update my food!</button>
+    {{#unless isDispose}}
+      <h4>Storage: {{food.storage}}</h4>
+      <p> Disposed by {{food.disposal}} </p>
+      <p>name: {{food.name}}</p>
+      <p>description: {{food.description}}</p>
+      {{#if food.purchasedDate}}<p>purchased date: {{formatDate food.purchasedDate}}</p>{{/if}}
+      {{#if food.expirationDate}}<p>expiration date: {{formatDate food.expirationDate}}</p>{{/if}}
+      {{#if food.remindDate}}<p>remind date: {{formatDate food.remindDate}}</p>{{/if}}
+      <button {{action 'editClick'}}>EDIT</button>
+      <button {{action 'destroyFood'}}>DELETE</button>
+      <button {{action 'disposeClick'}}>DISPOSE</button>
+      <br>
+      <br>
+    {{else}}
+      <p>Name: {{food.name}}</p>
+      <select name="disposal" {{action "selectValue" on="change"}}>
+          <option value="">How did you get rid of your Food</option>
+          <option class="disposal" value=ate>ate</option>
+          <option class="disposal" value=trash>trash</option>
+          <option class="disposal" value=donate>donate</option>
+      </select>
+      <br>
+      <button {{action 'disposeClick'}}>Cancel</button>
+      <button {{action 'updateFood'}}>Send to Disposal</button>
+      <br>
+    {{/unless}}
+    {{else}}
+      <h4>Storage: {{input value=food.storage}}</h4>
+      <p> Disposed by {{input value=food.disposal}} </p>
+      <p>name: {{input value=food.name}}</p>
+      <p>description: {{input value=food.description}}</p>
+      <p>purchased date: {{input value=food.purchasedDate}}</p>
+      <p>expiration date: {{input value=food.expirationDate}}</p>
+      <p>remind date: {{input value=food.remindDate}}</p>
+      <button {{action 'editClick'}}>Cancel</button>
+      <button {{action 'updateFood'}}>Update my food!</button>
   {{/unless}}
-  {{else}}
 {{/if}}
