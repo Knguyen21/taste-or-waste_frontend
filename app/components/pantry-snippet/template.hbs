@@ -1,15 +1,14 @@
 {{#if (eq food.storage "pantry")}}
   {{#unless isEditable}}
     {{#unless isDispose}}
-      <h4>Storage: {{food.storage}}</h4>
-      <p> Disposed by {{food.disposal}} </p>
-      <p>name: {{food.name}}</p>
-      <p>description: {{food.description}}</p>
+    <h4>Name: {{food.name}}</h4>
+    <p>description: {{food.description}}</p>
       {{#if food.expirationDate}}<p>expiration date: {{formatDate food.expirationDate}}</p>{{/if}}
       <button {{action 'editClick'}}>EDIT</button>
       <button {{action 'destroyFood'}}>DELETE</button>
       <button {{action 'disposeClick'}}>DISPOSE</button>
       <br>
+      <hr>
       <br>
     {{else}}
       <h3>Name: {{food.name}}</h3>
