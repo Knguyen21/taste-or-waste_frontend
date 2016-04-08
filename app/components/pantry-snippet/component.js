@@ -8,6 +8,7 @@ export default Ember.Component.extend({
       console.log('Component Action : updateFood');
       debugger;
       this.set('food.storage', Ember.$('select').val());
+      this.set('food.expirationDate', new Date(this.get('food.expirationDate')));
       this.sendAction('routeUpdateFood', this.get('food'));
       this.set('isEditable', false);
       this.set('isDispose', false);
