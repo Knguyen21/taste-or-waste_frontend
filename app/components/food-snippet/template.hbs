@@ -13,25 +13,8 @@
       <br>
     {{else}}
       <h3>Name: {{food.name}}</h3>
-      <h4>How did you get rid of your food</h4>
-      <h4>{{#radio-button
-          value="ate"
-          groupValue=disposal
-          changed="disposalChanged"}}
-          Ate
-          {{/radio-button}}
-      {{#radio-button
-          value="trash"
-          groupValue=disposal
-          changed="disposalChanged"}}
-          Trash
-          {{/radio-button}}
-      {{#radio-button
-          value="donate"
-          groupValue=disposal
-          changed="disposalChanged"}}
-          Donate
-      {{/radio-button}}</h4>
+      <h4>How did you dispose of your food: (ate, trash, donate) ?</h4>
+      {{input placeholder='Disposal' value=food.disposal}}
       <br>
       <button {{action 'disposeClick'}}>Cancel</button>
       <button {{action 'updateFood'}}>Send to Disposal</button>
@@ -39,7 +22,7 @@
       {{/unless}}
       {{else}}
       <h5> Storage </h5>
-      <select name="storage" {{action "selectValue" on="change"}}>
+      <select name="storage">
           <option value="storage" value=fridge>fridge</option>
           <option class="storage" value=freezer>freezer</option>
           <option class="storage" value=pantry>pantry</option>
