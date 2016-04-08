@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isEditable: false,
+  isDispose: false,
   actions: {
     updateFood: function(){
       console.log('Component Action : updateFood');
+      debugger;
       this.set('food.storage', Ember.$('select').val());
       this.sendAction('routeUpdateFood', this.get('food'));
       this.set('isEditable', false);
@@ -19,9 +21,6 @@ export default Ember.Component.extend({
     },
     disposeClick: function(){
       this.toggleProperty('isDispose');
-    },
-    selectValue () {
-      this.set('food.disposal', Ember.$('select').val());
     }
   }
 });
