@@ -1,13 +1,9 @@
 Front End
 
 
-User Story
 User Story:
-Users would be able to enter in the food they have in their freezer, fridge, and pantry(cupboard) and they can enter when they bought the food item and when it is expired, and when the user wants to be alerted(by email/ text?) about their food expiring. I want to add a 3rd party App that will give users recipe of meals that they can make with their food. Users can enter in the food item that is about to expire and find recipes to make.
-
-Also the User can update and delete their food item. If they delete their item, the app will ask the user what they did with the food : throw away, eat, or donate( give to a friend or donate to shelter ) the app can also give users link to food shelter to donate food( feature I will do if I meet my goals for the project)
-
-Users would be able to view what they did with their food: what food, and how many items they ate, threw away, and donated.
+Users would be able to enter in the food they have in their freezer, fridge, and pantry(cupboard) and they can enter and when it is expired.
+Also the User can update and delete their food item. If they delete their item, the app will ask the user what they did with the food : throw away, eat, or donate( give to a friend or donate to shelter ). Afterward the food will disappear from the storage page and appear in the disposal page. The user can see all the items and total count of food items they ate, threw away("trash"), and donated.
 
 
 wireframe
