@@ -1,4 +1,37 @@
-
-  <p>name: {{food.name}}</p>
-  <p>description: {{food.description}}</p>
-  <hr>
+{{#unless isEditable}}
+  {{#unless isDispose}}
+    <p>name: {{food.name}}</p>
+    <p>description: {{food.description}}</p>
+    <br>
+    <button {{action 'editClick'}}>Put back in storage</button>
+    <button {{action 'destroyFood'}}>Delete</button>
+    <button {{action 'disposeClick'}}>Change disposal</button>
+    <br>
+    <br>
+    <hr>
+    {{else}}
+      <h3>Name: {{food.name}}</h3>
+      <h4>How did you dispose of your food ?</h4>
+      <select name="disposal">
+          <option class="disposal" value="">Choose the disposal location</option>
+          <option class="disposal" value=ate>Ate</option>
+          <option class="disposal" value=trash>Trash</option>
+          <option class="disposal" value=donate>Donate</option>
+      </select>
+      <br>
+      <button {{action 'disposeClick'}}>Cancel</button>
+      <button {{action 'updateFood'}}>Change Disposal</button>
+      <br>
+      {{/unless}}
+      {{else}}
+      <h5> Storage </h5>
+      <select name="storage">
+          <option class="storage" value="">Choose the storage location</option>
+          <option value="storage" value=fridge>fridge</option>
+          <option class="storage" value=freezer>freezer</option>
+          <option class="storage" value=pantry>pantry</option>
+      </select>
+      <button {{action 'editClick'}}>Cancel</button>
+      <button {{action 'updateFood'}}>Put back in storage</button>
+      <br>
+{{/unless}}

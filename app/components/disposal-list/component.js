@@ -7,5 +7,15 @@ export default Ember.Component.extend({
   listTitle: Ember.computed('disposalType', function(){
     let string = this.get('disposalType');
     return string.charAt(0).toUpperCase() + string.slice(1);
-  })
-});
+  }),
+  actions: {
+    updateFood: function(food) {
+      console.log('Route Action : updateFood');
+      food.save();
+    },
+    destroyFood: function(food){
+      console.log('Route Action : destroyFood');
+      food.destroyRecord();
+    }
+  }
+  });

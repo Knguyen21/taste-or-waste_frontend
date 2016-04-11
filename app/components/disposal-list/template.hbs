@@ -1,4 +1,7 @@
 <h3>{{listTitle}} : {{filteredFoods.length}}</h3>
 {{#each filteredFoods as |eachFood|}}
-  {{disposal-snippet food=eachFood}}
+  {{disposal-snippet food=eachFood
+    routeUpdateFood='updateFood'
+    routeDestroyFood='destroyFood'
+  }}
 {{/each}}
