@@ -20,9 +20,11 @@
           <option class="disposal" value=donate>Donate</option>
       </select>
       <br>
-      <button {{action 'disposeClick'}}>Cancel</button>
-      <button {{action 'updateFood'}}>Send to Disposal</button>
       <br>
+      <button class="btn btn-primary btn-xs" {{action 'disposeClick'}}>Cancel</button>
+      <button class="btn btn-primary btn-xs" {{action 'updateFood'}}>Send to Disposal</button>
+      <br>
+      <hr>
       {{/unless}}
       {{else}}
       <h5> Storage </h5>
@@ -34,8 +36,10 @@
         <p>name: {{input value=food.name}}</p>
         <p>description: {{input value=food.description}}</p>
         <p>expiration date: {{input value=food.expirationDate}}</p>
-        <button {{action 'editClick'}}>Cancel</button>
-        <button {{action 'updateFood'}}>Update my food!</button>
         <br>
+        <button class="btn btn-primary btn-xs" {{action 'editClick'}}>Cancel</button>
+        <button class="btn btn-primary btn-xs" {{action 'updateFood'}}>Update my food!</button>
+        <br>
+        <hr>
   {{/unless}}
 {{/if}}
