@@ -14,8 +14,8 @@
       <h3>Name: {{food.name}}</h3>
       <h4>How did you dispose of your food ?</h4>
       <select name="disposal">
-          <option value="" value=fridge>Choose the disposal location</option>
-          <option value="disposal" value=ate>Ate</option>
+          <option class="disposal" value="">Choose the disposal location</option>
+          <option class="disposal" value=ate>Ate</option>
           <option class="disposal" value=trash>Trash</option>
           <option class="disposal" value=donate>Donate</option>
       </select>
@@ -28,7 +28,7 @@
       {{else}}
       <h5> Storage </h5>
       <select name="storage">
-          <option value="storage" value=freezer>freezer</option>
+          <option class="storage" value=freezer>freezer</option>
           <option class="storage" value=fridge>fridge</option>
           <option class="storage" value=pantry>pantry</option>
       </select>
