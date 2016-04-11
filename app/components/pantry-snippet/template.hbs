@@ -12,8 +12,13 @@
       <br>
     {{else}}
       <h3>Name: {{food.name}}</h3>
-      <h4>How did you dispose of your food: (ate, trash, donate) ?</h4>
-      {{input placeholder='Disposal' value=food.disposal}}
+      <h4>How did you dispose of your food ?</h4>
+      <select name="disposal">
+          <option value="" value=fridge>Choose the disposal location</option>
+          <option value="disposal" value=ate>Ate</option>
+          <option class="disposal" value=trash>Trash</option>
+          <option class="disposal" value=donate>Donate</option>
+      </select>
       <br>
       <button {{action 'disposeClick'}}>Cancel</button>
       <button {{action 'updateFood'}}>Send to Disposal</button>
