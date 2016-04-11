@@ -11,14 +11,16 @@
       <hr>
       <br>
     {{else}}
-      <h3>Name: {{food.name}}</h3>
-      <h4>How did you dispose of your food ?</h4>
+      <h5>Name: {{food.name}}</h5>
+      <h5>Description: {{food.description}}</h5>
+      <h5>How did you dispose of your food ?</h5>
       <select name="disposal">
           <option class="disposal" value="">Choose the disposal location</option>
           <option class="disposal" value=ate>Ate</option>
           <option class="disposal" value=trash>Trash</option>
           <option class="disposal" value=donate>Donate</option>
       </select>
+      <br>
       <br>
       <button class="btn btn-primary btn-xs" {{action 'disposeClick'}}>Cancel</button>
       <button class="btn btn-primary btn-xs" {{action 'updateFood'}}>Send to Disposal</button>
