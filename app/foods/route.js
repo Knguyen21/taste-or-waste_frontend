@@ -14,7 +14,7 @@ actions: {
   },
   updateFood: function(food) {
     console.log('Route Action : updateFood');
-    food.save();
+    food.save().then(()=>window.location.reload(true));
   },
   destroyFood: function(food){
     console.log('Route Action : destroyFood');

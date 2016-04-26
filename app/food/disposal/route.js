@@ -9,7 +9,7 @@ export default Ember.Route.extend({
   actions: {
     updateFood: function(food) {
       console.log('Route Action : updateFood');
-      food.save();
+      food.save().then(() => this.refresh());
     },
     destroyFood: function(food){
       console.log('Route Action : destroyFood');
