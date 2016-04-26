@@ -40,13 +40,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/taste-or-waste_frontend';
-    ENV.locationType = 'hash';
+
   }
 
-  ENV.baseURL = '/taste-or-waste_frontend';
-  ENV.locationType = 'hash';
-  ENV.host = 'https://taste-or-waste.herokuapp.com';
-  
   return ENV;
 };
