@@ -40,7 +40,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/taste-or-waste_frontend';
+    ENV.locationType = 'hash';
   }
 
   return ENV;
