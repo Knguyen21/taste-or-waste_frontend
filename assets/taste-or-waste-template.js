@@ -9,7 +9,6 @@
 define('taste-or-waste-template/ajax/service', ['exports', 'ember', 'ember-ajax/services/ajax'], function (exports, _ember, _emberAjaxServicesAjax) {
   exports['default'] = _emberAjaxServicesAjax['default'].extend({
     auth: _ember['default'].inject.service(),
-    host: 'https://taste-or-waste.herokuapp.com',
     headers: _ember['default'].computed('auth.credentials.token', {
       get: function get() {
         var headers = {};
@@ -41,7 +40,7 @@ define('taste-or-waste-template/app', ['exports', 'ember', 'taste-or-waste-templ
 define('taste-or-waste-template/application/adapter', ['exports', 'ember', 'active-model-adapter'], function (exports, _ember, _activeModelAdapter) {
   exports['default'] = _activeModelAdapter['default'].extend({
     auth: _ember['default'].inject.service(),
-    host: 'https://taste-or-waste.herokuapp.com',
+
     headers: _ember['default'].computed('auth.credentials.token', {
       get: function get() {
         var headers = {};
@@ -5657,7 +5656,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+78e8efc6"});
+  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+6a8ddb1b"});
 }
 
 /* jshint ignore:end */
