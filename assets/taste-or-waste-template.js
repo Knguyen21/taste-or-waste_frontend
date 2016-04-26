@@ -525,12 +525,12 @@ define('taste-or-waste-template/components/disposal-snippet/component', ['export
     actions: {
       updateFood: function updateFood() {
         console.log('Component Action : updateFood');
-        debugger;
         this.set('food.storage', _ember['default'].$('select').val());
         this.set('food.disposal', _ember['default'].$('select').val());
         this.sendAction('routeUpdateFood', this.get('food'));
         this.set('isEditable', false);
         this.set('isDispose', false);
+        window.location.reload(true);
       },
       destroyFood: function destroyFood() {
         console.log('Component Action : destroyFood');
@@ -4088,8 +4088,12 @@ define('taste-or-waste-template/food/disposal/route', ['exports', 'ember'], func
     },
     actions: {
       updateFood: function updateFood(food) {
+        var _this = this;
+
         console.log('Route Action : updateFood');
-        food.save();
+        food.save().then(function () {
+          return _this.refresh();
+        });
       },
       destroyFood: function destroyFood(food) {
         console.log('Route Action : destroyFood');
@@ -4560,7 +4564,9 @@ define('taste-or-waste-template/foods/route', ['exports', 'ember'], function (ex
       },
       updateFood: function updateFood(food) {
         console.log('Route Action : updateFood');
-        food.save();
+        food.save().then(function () {
+          return window.location.reload(true);
+        });
       },
       destroyFood: function destroyFood(food) {
         console.log('Route Action : destroyFood');
@@ -5657,7 +5663,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+6a8ddb1b"});
+  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+5b968465"});
 }
 
 /* jshint ignore:end */
