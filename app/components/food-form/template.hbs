@@ -1,19 +1,20 @@
 
 <div>
-  <h4>Where did you store the food: (fridge, freezer, or pantry) ?</h4>
+  <h5>Where did you store the food: (fridge, freezer, or pantry) ?</h5>
   <select name="storage" {{action "selectValue" on="change"}}>
       <option class="storage" value="">Choose the storage location</option>
       <option clss="storage" value=fridge>fridge</option>
       <option class="storage" value=freezer>freezer</option>
       <option class="storage" value=pantry>pantry</option>
   </select>
-  <h4>Food item</h4>
+  <h5>Food item</h5>
   {{input placeholder='Name' value=form.name}}
-  <h4>Description</h4>
+  <h5>Description</h5>
   {{input placeholder='Description' value=form.description}}
-  <h4>Expiration Date</h4>
-  {{input placeholder='Expiration YYYY-MM-DD' value=form.expirationDate}}
+  <h5>Expiration Date (MM/DD/YYYY)</h5>
+  {{input placeholder='Expire MM/DD/YYYY' value=form.expirationDate}}
 </div>
-<button {{action 'createFood'}}> Add a New Food </button>
+<br>
+<button class="btn btn-primary btn-sm" {{action 'createFood'}}> SAVE </button>
 <br>
 <br

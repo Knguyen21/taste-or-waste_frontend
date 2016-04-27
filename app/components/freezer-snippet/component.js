@@ -6,7 +6,6 @@ export default Ember.Component.extend({
   actions: {
     updateFood: function(){
       console.log('Component Action : updateFood');
-      debugger;
       this.set('food.storage', Ember.$('select').val());
       this.set('food.disposal', Ember.$('select').val());
       this.set('food.expirationDate', new Date(this.get('food.expirationDate')));
