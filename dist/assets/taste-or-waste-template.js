@@ -5663,7 +5663,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+08aa025c"});
+  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+26e95f5f"});
 }
 
 /* jshint ignore:end */
