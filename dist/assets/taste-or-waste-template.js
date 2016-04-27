@@ -2220,15 +2220,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("select");
             dom.setAttribute(el1, "name", "storage");
-            var el2 = dom.createTextNode("\n            ");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("option");
-            dom.setAttribute(el2, "class", "storage");
-            dom.setAttribute(el2, "value", "fridge");
-            var el3 = dom.createTextNode("fridge");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n            ");
+            var el2 = dom.createTextNode("\n          ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -2236,7 +2228,15 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             var el3 = dom.createTextNode("freezer");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n            ");
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("option");
+            dom.setAttribute(el2, "class", "storage");
+            dom.setAttribute(el2, "value", "fridge");
+            var el3 = dom.createTextNode("fridge");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n          ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -3631,7 +3631,15 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("select");
             dom.setAttribute(el1, "name", "storage");
-            var el2 = dom.createTextNode("\n            ");
+            var el2 = dom.createTextNode("\n          ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("option");
+            dom.setAttribute(el2, "class", "storage");
+            dom.setAttribute(el2, "value", "pantry");
+            var el3 = dom.createTextNode("pantry");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n          ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -3639,20 +3647,12 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             var el3 = dom.createTextNode("fridge");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n            ");
+            var el2 = dom.createTextNode("\n          ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
             dom.setAttribute(el2, "value", "freezer");
             var el3 = dom.createTextNode("freezer");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n            ");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("option");
-            dom.setAttribute(el2, "class", "storage");
-            dom.setAttribute(el2, "value", "pantry");
-            var el3 = dom.createTextNode("pantry");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
             var el2 = dom.createTextNode("\n        ");
@@ -5719,7 +5719,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+08aa025c"});
+  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+26e95f5f"});
 }
 
 /* jshint ignore:end */
