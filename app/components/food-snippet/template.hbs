@@ -3,7 +3,8 @@
     {{#unless isDispose}}
       <h4>Name: {{food.name}}</h4>
       <p>description: {{food.description}}</p>
-      {{#if food.expirationDate}}<p>expiration date: {{formatDate food.expirationDate}}</p>{{/if}}
+      {{#if food.expirationDate}}<p>expiration date: {{moment-format food.expirationDate "MM/DD/YYYY"}}</p>{{/if}}
+      <p>expire in: {{moment-from-now food.expirationDate}}</p>
       <button {{action 'editClick'}}>EDIT</button>
       <button {{action 'destroyFood'}}>DELETE</button>
       <button {{action 'disposeClick'}}>DISPOSE</button>

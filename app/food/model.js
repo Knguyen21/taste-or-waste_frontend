@@ -8,6 +8,6 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
   purchasedDate: DS.attr('date'),
-  expirationDate: DS.attr('date'),
+  expirationDate: DS.attr('utc'),
   remindDate: DS.attr('date')
 });
