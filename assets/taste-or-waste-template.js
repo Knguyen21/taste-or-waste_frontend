@@ -3249,7 +3249,6 @@ define('taste-or-waste-template/components/pantry-snippet/component', ['exports'
     actions: {
       updateFood: function updateFood() {
         console.log('Component Action : updateFood');
-        debugger;
         this.set('food.storage', _ember['default'].$('select').val());
         this.set('food.disposal', _ember['default'].$('select').val());
         this.set('food.expirationDate', new Date(this.get('food.expirationDate')));
@@ -5719,7 +5718,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+26e95f5f"});
+  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+4402c157"});
 }
 
 /* jshint ignore:end */
