@@ -1,20 +1,20 @@
 {{#if (eq food.storage "freezer")}}
   {{#unless isEditable}}
     {{#unless isDispose}}
-    <h4>Name: {{food.name}}</h4>
-    <p>description: {{food.description}}</p>
-    {{#if food.expirationDate}}<p>expiration date: {{moment-format food.expirationDate "MM/DD/YYYY"}}</p>{{/if}}
-    <p>expire in: {{moment-from-now food.expirationDate}}</p>
-      <button {{action 'editClick'}}>EDIT</button>
-      <button {{action 'destroyFood'}}>DELETE</button>
-      <button {{action 'disposeClick'}}>DISPOSE</button>
+      <h4>Name: {{food.name}}</h4>
+      <p>description: {{food.description}}</p>
+      {{#if food.expirationDate}}<p>expiration date: {{moment-format food.expirationDate "MM/DD/YYYY"}}</p>{{/if}}
+      <p>expire in: {{moment-from-now food.expirationDate}}</p>
+      <button class="btn btn-primary btn-sm" {{action 'editClick'}}>EDIT</button>
+      <button  class="btn btn-primary btn-sm divider"{{action 'disposeClick'}}>DISPOSE</button>
+      <button class="btn btn-danger btn-sm divider" {{action 'destroyFood'}}>DELETE</button>
       <br>
       <hr>
       <br>
     {{else}}
-    <h5>Name: {{food.name}}</h5>
-    <h5>Description: {{food.description}}</h5>
-    <h5>How did you dispose of your food ?</h5>
+    <h4>Name: {{food.name}}</h4>
+    <p>description: {{food.description}}</p>
+      <p>How did you dispose of your food ?</p>
       <select name="disposal">
           <option class="disposal" value="">Choose the disposal location</option>
           <option class="disposal" value=ate>Ate</option>
@@ -23,24 +23,23 @@
       </select>
       <br>
       <br>
-      <button class="btn btn-primary btn-xs" {{action 'disposeClick'}}>Cancel</button>
-      <button class="btn btn-primary btn-xs" {{action 'updateFood'}}>Send to Disposal</button>
+      <button class="btn btn-warning btn-sm" {{action 'disposeClick'}}>Cancel</button>
+      <button class="btn btn-warning btn-sm divider" {{action 'updateFood'}}>Send to Disposal</button>
       <br>
       <hr>
       {{/unless}}
       {{else}}
       <h5> Storage </h5>
-      <select name="storage">
-          <option class="storage" value=freezer>freezer</option>
-          <option class="storage" value=fridge>fridge</option>
-          <option class="storage" value=pantry>pantry</option>
-      </select>
+        <select name="storage">
+            <option class="storage" value=fridge>fridge</option>
+            <option class="storage" value=freezer>freezer</option>
+            <option class="storage" value=pantry>pantry</option>
+        </select>
         <p>name: {{input value=food.name}}</p>
         <p>description: {{input value=food.description}}</p>
         <p>expiration date: {{input value=food.expirationDate}}</p>
-        <br>
-        <button class="btn btn-primary btn-xs" {{action 'editClick'}}>Cancel</button>
-        <button class="btn btn-primary btn-xs" {{action 'updateFood'}}>Update my food!</button>
+        <button class="btn btn-warning btn-sm" {{action 'editClick'}}>Cancel</button>
+        <button class="btn btn-warning btn-sm divider" {{action 'updateFood'}}>Update my food!</button>
         <br>
         <hr>
   {{/unless}}

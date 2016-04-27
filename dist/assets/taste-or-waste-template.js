@@ -1117,7 +1117,7 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
             "column": 0
           },
           "end": {
-            "line": 20,
+            "line": 21,
             "column": 0
           }
         },
@@ -1134,7 +1134,7 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
         var el1 = dom.createElement("div");
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h4");
+        var el2 = dom.createElement("h5");
         var el3 = dom.createTextNode("Where did you store the food: (fridge, freezer, or pantry) ?");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
@@ -1179,7 +1179,7 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h4");
+        var el2 = dom.createElement("h5");
         var el3 = dom.createTextNode("Food item");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
@@ -1189,7 +1189,7 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h4");
+        var el2 = dom.createElement("h5");
         var el3 = dom.createTextNode("Description");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
@@ -1199,8 +1199,8 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h4");
-        var el3 = dom.createTextNode("Expiration Date");
+        var el2 = dom.createElement("h5");
+        var el3 = dom.createTextNode("Expiration Date (MM/DD/YYYY)");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
@@ -1212,8 +1212,13 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createElement("button");
-        var el2 = dom.createTextNode(" Add a New Food ");
+        dom.setAttribute(el1, "class", "btn btn-primary btn-sm");
+        var el2 = dom.createTextNode(" SAVE ");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -1227,7 +1232,7 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [1]);
         var element1 = dom.childAt(element0, [3]);
-        var element2 = dom.childAt(fragment, [3]);
+        var element2 = dom.childAt(fragment, [5]);
         var morphs = new Array(5);
         morphs[0] = dom.createElementMorph(element1);
         morphs[1] = dom.createMorphAt(element0, 7, 7);
@@ -1236,7 +1241,7 @@ define("taste-or-waste-template/components/food-form/template", ["exports"], fun
         morphs[4] = dom.createElementMorph(element2);
         return morphs;
       },
-      statements: [["element", "action", ["selectValue"], ["on", "change"], ["loc", [null, [4, 25], [4, 61]]]], ["inline", "input", [], ["placeholder", "Name", "value", ["subexpr", "@mut", [["get", "form.name", ["loc", [null, [11, 35], [11, 44]]]]], [], []]], ["loc", [null, [11, 2], [11, 46]]]], ["inline", "input", [], ["placeholder", "Description", "value", ["subexpr", "@mut", [["get", "form.description", ["loc", [null, [13, 42], [13, 58]]]]], [], []]], ["loc", [null, [13, 2], [13, 60]]]], ["inline", "input", [], ["placeholder", "Expiration YYYY-MM-DD", "value", ["subexpr", "@mut", [["get", "form.expirationDate", ["loc", [null, [15, 52], [15, 71]]]]], [], []]], ["loc", [null, [15, 2], [15, 73]]]], ["element", "action", ["createFood"], [], ["loc", [null, [17, 8], [17, 31]]]]],
+      statements: [["element", "action", ["selectValue"], ["on", "change"], ["loc", [null, [4, 25], [4, 61]]]], ["inline", "input", [], ["placeholder", "Name", "value", ["subexpr", "@mut", [["get", "form.name", ["loc", [null, [11, 35], [11, 44]]]]], [], []]], ["loc", [null, [11, 2], [11, 46]]]], ["inline", "input", [], ["placeholder", "Description", "value", ["subexpr", "@mut", [["get", "form.description", ["loc", [null, [13, 42], [13, 58]]]]], [], []]], ["loc", [null, [13, 2], [13, 60]]]], ["inline", "input", [], ["placeholder", "Expire MM/DD/YYYY", "value", ["subexpr", "@mut", [["get", "form.expirationDate", ["loc", [null, [15, 48], [15, 67]]]]], [], []]], ["loc", [null, [15, 2], [15, 69]]]], ["element", "action", ["createFood"], [], ["loc", [null, [18, 39], [18, 62]]]]],
       locals: [],
       templates: []
     };
@@ -1370,19 +1375,22 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
+              dom.setAttribute(el1, "class", "btn btn-primary btn-sm");
               var el2 = dom.createTextNode("EDIT");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              var el2 = dom.createTextNode("DELETE");
+              dom.setAttribute(el1, "class", "btn btn-primary btn-sm divider");
+              var el2 = dom.createTextNode("DISPOSE");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              var el2 = dom.createTextNode("DISPOSE");
+              dom.setAttribute(el1, "class", "btn btn-danger btn-sm divider");
+              var el2 = dom.createTextNode("DELETE");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
@@ -1415,7 +1423,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 14], [8, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [9, 14], [9, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [10, 14], [10, 39]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 53], [9, 78]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
             locals: [],
             templates: [child0]
           };
@@ -1444,25 +1452,25 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             hasRendered: false,
             buildFragment: function buildFragment(dom) {
               var el0 = dom.createDocumentFragment();
-              var el1 = dom.createTextNode("      ");
+              var el1 = dom.createTextNode("    ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
+              var el1 = dom.createElement("h4");
               var el2 = dom.createTextNode("Name: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n      ");
+              var el1 = dom.createTextNode("\n    ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
-              var el2 = dom.createTextNode("Description: ");
+              var el1 = dom.createElement("p");
+              var el2 = dom.createTextNode("description: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
+              var el1 = dom.createElement("p");
               var el2 = dom.createTextNode("How did you dispose of your food ?");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
@@ -1516,14 +1524,14 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+              dom.setAttribute(el1, "class", "btn btn-warning btn-sm");
               var el2 = dom.createTextNode("Cancel");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+              dom.setAttribute(el1, "class", "btn btn-warning btn-sm divider");
               var el2 = dom.createTextNode("Send to Disposal");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
@@ -1549,7 +1557,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               morphs[3] = dom.createElementMorph(element3);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [15, 16], [15, 29]]]], ["content", "food.description", ["loc", [null, [16, 23], [16, 43]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 45], [27, 68]]]]],
+            statements: [["content", "food.name", ["loc", [null, [15, 14], [15, 27]]]], ["content", "food.description", ["loc", [null, [16, 20], [16, 40]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 53], [27, 76]]]]],
             locals: [],
             templates: []
           };
@@ -1605,7 +1613,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
                 "column": 6
               },
               "end": {
-                "line": 46,
+                "line": 45,
                 "column": 2
               }
             },
@@ -1623,11 +1631,11 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             var el2 = dom.createTextNode(" Storage ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n      ");
+            var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("select");
             dom.setAttribute(el1, "name", "storage");
-            var el2 = dom.createTextNode("\n          ");
+            var el2 = dom.createTextNode("\n            ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -1635,7 +1643,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             var el3 = dom.createTextNode("fridge");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n          ");
+            var el2 = dom.createTextNode("\n            ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -1643,7 +1651,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             var el3 = dom.createTextNode("freezer");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n          ");
+            var el2 = dom.createTextNode("\n            ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -1651,7 +1659,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             var el3 = dom.createTextNode("pantry");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n      ");
+            var el2 = dom.createTextNode("\n        ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
@@ -1680,19 +1688,15 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
-            var el1 = dom.createElement("br");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n        ");
-            dom.appendChild(el0, el1);
             var el1 = dom.createElement("button");
-            dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+            dom.setAttribute(el1, "class", "btn btn-warning btn-sm");
             var el2 = dom.createTextNode("Cancel");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("button");
-            dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+            dom.setAttribute(el1, "class", "btn btn-warning btn-sm divider");
             var el2 = dom.createTextNode("Update my food!");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
@@ -1709,8 +1713,8 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element0 = dom.childAt(fragment, [13]);
-            var element1 = dom.childAt(fragment, [15]);
+            var element0 = dom.childAt(fragment, [11]);
+            var element1 = dom.childAt(fragment, [13]);
             var morphs = new Array(5);
             morphs[0] = dom.createMorphAt(dom.childAt(fragment, [5]), 1, 1);
             morphs[1] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
@@ -1719,7 +1723,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             morphs[4] = dom.createElementMorph(element1);
             return morphs;
           },
-          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [42, 47], [42, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [43, 47], [43, 70]]]]],
+          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [41, 47], [41, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [42, 55], [42, 78]]]]],
           locals: [],
           templates: []
         };
@@ -1738,7 +1742,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               "column": 0
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 0
             }
           },
@@ -1761,7 +1765,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [46, 13]]]]],
+        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [45, 13]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -1780,7 +1784,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             "column": 0
           },
           "end": {
-            "line": 48,
+            "line": 47,
             "column": 0
           }
         },
@@ -1803,7 +1807,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "fridge"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [47, 7]]]]],
+      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "fridge"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [46, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -1850,11 +1854,11 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
                   "source": null,
                   "start": {
                     "line": 6,
-                    "column": 4
+                    "column": 6
                   },
                   "end": {
                     "line": 6,
-                    "column": 105
+                    "column": 107
                   }
                 },
                 "moduleName": "taste-or-waste-template/components/freezer-snippet/template.hbs"
@@ -1878,7 +1882,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
                 morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 1, 1);
                 return morphs;
               },
-              statements: [["inline", "moment-format", [["get", "food.expirationDate", ["loc", [null, [6, 67], [6, 86]]]], "MM/DD/YYYY"], [], ["loc", [null, [6, 51], [6, 101]]]]],
+              statements: [["inline", "moment-format", [["get", "food.expirationDate", ["loc", [null, [6, 69], [6, 88]]]], "MM/DD/YYYY"], [], ["loc", [null, [6, 53], [6, 103]]]]],
               locals: [],
               templates: []
             };
@@ -1906,7 +1910,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             hasRendered: false,
             buildFragment: function buildFragment(dom) {
               var el0 = dom.createDocumentFragment();
-              var el1 = dom.createTextNode("    ");
+              var el1 = dom.createTextNode("      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("h4");
               var el2 = dom.createTextNode("Name: ");
@@ -1914,7 +1918,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("p");
               var el2 = dom.createTextNode("description: ");
@@ -1922,11 +1926,11 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createComment("");
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("p");
               var el2 = dom.createTextNode("expire in: ");
@@ -1937,19 +1941,22 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
+              dom.setAttribute(el1, "class", "btn btn-primary btn-sm");
               var el2 = dom.createTextNode("EDIT");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              var el2 = dom.createTextNode("DELETE");
+              dom.setAttribute(el1, "class", "btn btn-primary btn-sm divider");
+              var el2 = dom.createTextNode("DISPOSE");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              var el2 = dom.createTextNode("DISPOSE");
+              dom.setAttribute(el1, "class", "btn btn-danger btn-sm divider");
+              var el2 = dom.createTextNode("DELETE");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
@@ -1982,7 +1989,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 14], [4, 27]]]], ["content", "food.description", ["loc", [null, [5, 20], [5, 40]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 10], [6, 29]]]]], [], 0, null, ["loc", [null, [6, 4], [6, 112]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 36], [7, 55]]]]], [], ["loc", [null, [7, 18], [7, 57]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 14], [8, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [9, 14], [9, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [10, 14], [10, 39]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 53], [9, 78]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
             locals: [],
             templates: [child0]
           };
@@ -2013,7 +2020,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               var el0 = dom.createDocumentFragment();
               var el1 = dom.createTextNode("    ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
+              var el1 = dom.createElement("h4");
               var el2 = dom.createTextNode("Name: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
@@ -2021,15 +2028,15 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n    ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
-              var el2 = dom.createTextNode("Description: ");
+              var el1 = dom.createElement("p");
+              var el2 = dom.createTextNode("description: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
+              var el1 = dom.createElement("p");
               var el2 = dom.createTextNode("How did you dispose of your food ?");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
@@ -2083,14 +2090,14 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+              dom.setAttribute(el1, "class", "btn btn-warning btn-sm");
               var el2 = dom.createTextNode("Cancel");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+              dom.setAttribute(el1, "class", "btn btn-warning btn-sm divider");
               var el2 = dom.createTextNode("Send to Disposal");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
@@ -2116,7 +2123,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               morphs[3] = dom.createElementMorph(element3);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [15, 14], [15, 27]]]], ["content", "food.description", ["loc", [null, [16, 21], [16, 41]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 45], [27, 68]]]]],
+            statements: [["content", "food.name", ["loc", [null, [15, 14], [15, 27]]]], ["content", "food.description", ["loc", [null, [16, 20], [16, 40]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 53], [27, 76]]]]],
             locals: [],
             templates: []
           };
@@ -2172,7 +2179,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
                 "column": 6
               },
               "end": {
-                "line": 46,
+                "line": 45,
                 "column": 2
               }
             },
@@ -2190,19 +2197,11 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             var el2 = dom.createTextNode(" Storage ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n      ");
+            var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("select");
             dom.setAttribute(el1, "name", "storage");
-            var el2 = dom.createTextNode("\n          ");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("option");
-            dom.setAttribute(el2, "class", "storage");
-            dom.setAttribute(el2, "value", "freezer");
-            var el3 = dom.createTextNode("freezer");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n          ");
+            var el2 = dom.createTextNode("\n            ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -2210,7 +2209,15 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             var el3 = dom.createTextNode("fridge");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n          ");
+            var el2 = dom.createTextNode("\n            ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("option");
+            dom.setAttribute(el2, "class", "storage");
+            dom.setAttribute(el2, "value", "freezer");
+            var el3 = dom.createTextNode("freezer");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n            ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -2218,7 +2225,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             var el3 = dom.createTextNode("pantry");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n      ");
+            var el2 = dom.createTextNode("\n        ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
@@ -2247,19 +2254,15 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
-            var el1 = dom.createElement("br");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n        ");
-            dom.appendChild(el0, el1);
             var el1 = dom.createElement("button");
-            dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+            dom.setAttribute(el1, "class", "btn btn-warning btn-sm");
             var el2 = dom.createTextNode("Cancel");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("button");
-            dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+            dom.setAttribute(el1, "class", "btn btn-warning btn-sm divider");
             var el2 = dom.createTextNode("Update my food!");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
@@ -2276,8 +2279,8 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element0 = dom.childAt(fragment, [13]);
-            var element1 = dom.childAt(fragment, [15]);
+            var element0 = dom.childAt(fragment, [11]);
+            var element1 = dom.childAt(fragment, [13]);
             var morphs = new Array(5);
             morphs[0] = dom.createMorphAt(dom.childAt(fragment, [5]), 1, 1);
             morphs[1] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
@@ -2286,7 +2289,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             morphs[4] = dom.createElementMorph(element1);
             return morphs;
           },
-          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [42, 47], [42, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [43, 47], [43, 70]]]]],
+          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [41, 47], [41, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [42, 55], [42, 78]]]]],
           locals: [],
           templates: []
         };
@@ -2305,7 +2308,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               "column": 0
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 0
             }
           },
@@ -2328,7 +2331,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [46, 13]]]]],
+        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [45, 13]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -2347,7 +2350,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             "column": 0
           },
           "end": {
-            "line": 48,
+            "line": 47,
             "column": 0
           }
         },
@@ -2370,7 +2373,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "freezer"], [], ["loc", [null, [1, 6], [1, 33]]]]], [], 0, null, ["loc", [null, [1, 0], [47, 7]]]]],
+      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "freezer"], [], ["loc", [null, [1, 6], [1, 33]]]]], [], 0, null, ["loc", [null, [1, 0], [46, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -3262,11 +3265,11 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
                   "source": null,
                   "start": {
                     "line": 6,
-                    "column": 4
+                    "column": 6
                   },
                   "end": {
                     "line": 6,
-                    "column": 105
+                    "column": 107
                   }
                 },
                 "moduleName": "taste-or-waste-template/components/pantry-snippet/template.hbs"
@@ -3290,7 +3293,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
                 morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 1, 1);
                 return morphs;
               },
-              statements: [["inline", "moment-format", [["get", "food.expirationDate", ["loc", [null, [6, 67], [6, 86]]]], "MM/DD/YYYY"], [], ["loc", [null, [6, 51], [6, 101]]]]],
+              statements: [["inline", "moment-format", [["get", "food.expirationDate", ["loc", [null, [6, 69], [6, 88]]]], "MM/DD/YYYY"], [], ["loc", [null, [6, 53], [6, 103]]]]],
               locals: [],
               templates: []
             };
@@ -3318,7 +3321,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             hasRendered: false,
             buildFragment: function buildFragment(dom) {
               var el0 = dom.createDocumentFragment();
-              var el1 = dom.createTextNode("    ");
+              var el1 = dom.createTextNode("      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("h4");
               var el2 = dom.createTextNode("Name: ");
@@ -3326,7 +3329,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("p");
               var el2 = dom.createTextNode("description: ");
@@ -3334,11 +3337,11 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createComment("");
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("p");
               var el2 = dom.createTextNode("expire in: ");
@@ -3349,19 +3352,22 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
+              dom.setAttribute(el1, "class", "btn btn-primary btn-sm");
               var el2 = dom.createTextNode("EDIT");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              var el2 = dom.createTextNode("DELETE");
+              dom.setAttribute(el1, "class", "btn btn-primary btn-sm divider");
+              var el2 = dom.createTextNode("DISPOSE");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              var el2 = dom.createTextNode("DISPOSE");
+              dom.setAttribute(el1, "class", "btn btn-danger btn-sm divider");
+              var el2 = dom.createTextNode("DELETE");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
@@ -3394,7 +3400,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 14], [4, 27]]]], ["content", "food.description", ["loc", [null, [5, 20], [5, 40]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 10], [6, 29]]]]], [], 0, null, ["loc", [null, [6, 4], [6, 112]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 36], [7, 55]]]]], [], ["loc", [null, [7, 18], [7, 57]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 14], [8, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [9, 14], [9, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [10, 14], [10, 39]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 53], [9, 78]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
             locals: [],
             templates: [child0]
           };
@@ -3425,7 +3431,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               var el0 = dom.createDocumentFragment();
               var el1 = dom.createTextNode("    ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
+              var el1 = dom.createElement("h4");
               var el2 = dom.createTextNode("Name: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
@@ -3433,15 +3439,15 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n    ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
-              var el2 = dom.createTextNode("Description: ");
+              var el1 = dom.createElement("p");
+              var el2 = dom.createTextNode("description: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n    ");
+              var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("h5");
+              var el1 = dom.createElement("p");
               var el2 = dom.createTextNode("How did you dispose of your food ?");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
@@ -3495,14 +3501,14 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+              dom.setAttribute(el1, "class", "btn btn-warning btn-sm");
               var el2 = dom.createTextNode("Cancel");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("button");
-              dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+              dom.setAttribute(el1, "class", "btn btn-warning btn-sm divider");
               var el2 = dom.createTextNode("Send to Disposal");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
@@ -3528,7 +3534,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               morphs[3] = dom.createElementMorph(element3);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [15, 14], [15, 27]]]], ["content", "food.description", ["loc", [null, [16, 21], [16, 41]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 45], [27, 68]]]]],
+            statements: [["content", "food.name", ["loc", [null, [15, 14], [15, 27]]]], ["content", "food.description", ["loc", [null, [16, 20], [16, 40]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 53], [27, 76]]]]],
             locals: [],
             templates: []
           };
@@ -3584,7 +3590,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
                 "column": 6
               },
               "end": {
-                "line": 46,
+                "line": 45,
                 "column": 2
               }
             },
@@ -3602,19 +3608,11 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             var el2 = dom.createTextNode(" Storage ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n      ");
+            var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("select");
             dom.setAttribute(el1, "name", "storage");
-            var el2 = dom.createTextNode("\n          ");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("option");
-            dom.setAttribute(el2, "class", "storage");
-            dom.setAttribute(el2, "value", "pantry");
-            var el3 = dom.createTextNode("pantry");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n          ");
+            var el2 = dom.createTextNode("\n            ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -3622,7 +3620,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             var el3 = dom.createTextNode("fridge");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n          ");
+            var el2 = dom.createTextNode("\n            ");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("option");
             dom.setAttribute(el2, "class", "storage");
@@ -3630,7 +3628,15 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             var el3 = dom.createTextNode("freezer");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n      ");
+            var el2 = dom.createTextNode("\n            ");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("option");
+            dom.setAttribute(el2, "class", "storage");
+            dom.setAttribute(el2, "value", "pantry");
+            var el3 = dom.createTextNode("pantry");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n        ");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
@@ -3659,19 +3665,15 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
-            var el1 = dom.createElement("br");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n        ");
-            dom.appendChild(el0, el1);
             var el1 = dom.createElement("button");
-            dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+            dom.setAttribute(el1, "class", "btn btn-warning btn-sm");
             var el2 = dom.createTextNode("Cancel");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n        ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("button");
-            dom.setAttribute(el1, "class", "btn btn-primary btn-xs");
+            dom.setAttribute(el1, "class", "btn btn-warning btn-sm divider");
             var el2 = dom.createTextNode("Update my food!");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
@@ -3688,8 +3690,8 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element0 = dom.childAt(fragment, [13]);
-            var element1 = dom.childAt(fragment, [15]);
+            var element0 = dom.childAt(fragment, [11]);
+            var element1 = dom.childAt(fragment, [13]);
             var morphs = new Array(5);
             morphs[0] = dom.createMorphAt(dom.childAt(fragment, [5]), 1, 1);
             morphs[1] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
@@ -3698,7 +3700,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             morphs[4] = dom.createElementMorph(element1);
             return morphs;
           },
-          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [42, 47], [42, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [43, 47], [43, 70]]]]],
+          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [41, 47], [41, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [42, 55], [42, 78]]]]],
           locals: [],
           templates: []
         };
@@ -3717,7 +3719,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               "column": 0
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 0
             }
           },
@@ -3740,7 +3742,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [46, 13]]]]],
+        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [45, 13]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -3759,7 +3761,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 48,
+            "line": 47,
             "column": 0
           }
         },
@@ -3782,7 +3784,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "pantry"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [47, 7]]]]],
+      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "pantry"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [46, 7]]]]],
       locals: [],
       templates: [child0]
     };
