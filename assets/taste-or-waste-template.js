@@ -1386,7 +1386,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("p");
-              var el2 = dom.createTextNode("expire in: ");
+              var el2 = dom.createTextNode("expire: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
@@ -1442,7 +1442,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 52], [9, 77]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 35], [7, 54]]]]], [], ["loc", [null, [7, 17], [7, 56]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 52], [9, 77]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
             locals: [],
             templates: [child0]
           };
@@ -1952,7 +1952,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("p");
-              var el2 = dom.createTextNode("expire in: ");
+              var el2 = dom.createTextNode("expire: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
@@ -2008,7 +2008,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 53], [9, 78]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 35], [7, 54]]]]], [], ["loc", [null, [7, 17], [7, 56]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 53], [9, 78]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
             locals: [],
             templates: [child0]
           };
@@ -3363,7 +3363,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("p");
-              var el2 = dom.createTextNode("expire in: ");
+              var el2 = dom.createTextNode("expire: ");
               dom.appendChild(el1, el2);
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
@@ -3419,7 +3419,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 53], [9, 78]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 35], [7, 54]]]]], [], ["loc", [null, [7, 17], [7, 56]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 45], [8, 67]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 53], [9, 78]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [10, 52], [10, 76]]]]],
             locals: [],
             templates: [child0]
           };
