@@ -1091,7 +1091,6 @@ define('taste-or-waste-template/components/food-form/component', ['exports', 'em
     actions: {
       createFood: function createFood() {
         console.log('Component Action : createFood');
-        debugger;
         this.sendAction('routeCreateFood', this.get('foodProperties'));
         this.set('form', {});
       },
@@ -1250,7 +1249,6 @@ define('taste-or-waste-template/components/food-snippet/component', ['exports', 
     actions: {
       updateFood: function updateFood() {
         console.log('Component Action : updateFood');
-        debugger;
         this.set('food.storage', _ember['default'].$('select').val());
         this.set('food.disposal', _ember['default'].$('select').val());
         this.set('food.expirationDate', new Date(this.get('food.expirationDate')));
@@ -1289,7 +1287,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
                   },
                   "end": {
                     "line": 6,
-                    "column": 91
+                    "column": 107
                   }
                 },
                 "moduleName": "taste-or-waste-template/components/food-snippet/template.hbs"
@@ -1313,7 +1311,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
                 morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 1, 1);
                 return morphs;
               },
-              statements: [["inline", "formatDate", [["get", "food.expirationDate", ["loc", [null, [6, 66], [6, 85]]]]], [], ["loc", [null, [6, 53], [6, 87]]]]],
+              statements: [["inline", "moment-format", [["get", "food.expirationDate", ["loc", [null, [6, 69], [6, 88]]]], "MM/DD/YYYY"], [], ["loc", [null, [6, 53], [6, 103]]]]],
               locals: [],
               templates: []
             };
@@ -1329,7 +1327,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
                   "column": 4
                 },
                 "end": {
-                  "line": 13,
+                  "line": 14,
                   "column": 4
                 }
               },
@@ -1360,6 +1358,14 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
               var el1 = dom.createComment("");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n      ");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("p");
+              var el2 = dom.createTextNode("expire in: ");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createComment("");
+              dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
@@ -1396,19 +1402,20 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               return el0;
             },
             buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-              var element4 = dom.childAt(fragment, [7]);
-              var element5 = dom.childAt(fragment, [9]);
-              var element6 = dom.childAt(fragment, [11]);
-              var morphs = new Array(6);
+              var element4 = dom.childAt(fragment, [9]);
+              var element5 = dom.childAt(fragment, [11]);
+              var element6 = dom.childAt(fragment, [13]);
+              var morphs = new Array(7);
               morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
               morphs[1] = dom.createMorphAt(dom.childAt(fragment, [3]), 1, 1);
               morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
-              morphs[3] = dom.createElementMorph(element4);
-              morphs[4] = dom.createElementMorph(element5);
-              morphs[5] = dom.createElementMorph(element6);
+              morphs[3] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
+              morphs[4] = dom.createElementMorph(element4);
+              morphs[5] = dom.createElementMorph(element5);
+              morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 98]]]], ["element", "action", ["editClick"], [], ["loc", [null, [7, 14], [7, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [8, 14], [8, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 14], [9, 39]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 16], [4, 29]]]], ["content", "food.description", ["loc", [null, [5, 22], [5, 42]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 114]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 38], [7, 57]]]]], [], ["loc", [null, [7, 20], [7, 59]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 14], [8, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [9, 14], [9, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [10, 14], [10, 39]]]]],
             locals: [],
             templates: [child0]
           };
@@ -1421,11 +1428,11 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 13,
+                  "line": 14,
                   "column": 4
                 },
                 "end": {
-                  "line": 29,
+                  "line": 30,
                   "column": 6
                 }
               },
@@ -1542,7 +1549,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               morphs[3] = dom.createElementMorph(element3);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [14, 16], [14, 29]]]], ["content", "food.description", ["loc", [null, [15, 23], [15, 43]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [25, 45], [25, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [26, 45], [26, 68]]]]],
+            statements: [["content", "food.name", ["loc", [null, [15, 16], [15, 29]]]], ["content", "food.description", ["loc", [null, [16, 23], [16, 43]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 45], [27, 68]]]]],
             locals: [],
             templates: []
           };
@@ -1558,7 +1565,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
                 "column": 2
               },
               "end": {
-                "line": 30,
+                "line": 31,
                 "column": 6
               }
             },
@@ -1581,7 +1588,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "unless", [["get", "isDispose", ["loc", [null, [3, 14], [3, 23]]]]], [], 0, 1, ["loc", [null, [3, 4], [29, 17]]]]],
+          statements: [["block", "unless", [["get", "isDispose", ["loc", [null, [3, 14], [3, 23]]]]], [], 0, 1, ["loc", [null, [3, 4], [30, 17]]]]],
           locals: [],
           templates: [child0, child1]
         };
@@ -1594,11 +1601,11 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             "loc": {
               "source": null,
               "start": {
-                "line": 30,
+                "line": 31,
                 "column": 6
               },
               "end": {
-                "line": 45,
+                "line": 46,
                 "column": 2
               }
             },
@@ -1712,7 +1719,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             morphs[4] = dom.createElementMorph(element1);
             return morphs;
           },
-          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [37, 31], [37, 40]]]]], [], []]], ["loc", [null, [37, 17], [37, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [38, 38], [38, 54]]]]], [], []]], ["loc", [null, [38, 24], [38, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [39, 42], [39, 61]]]]], [], []]], ["loc", [null, [39, 28], [39, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [41, 47], [41, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [42, 47], [42, 70]]]]],
+          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [42, 47], [42, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [43, 47], [43, 70]]]]],
           locals: [],
           templates: []
         };
@@ -1731,7 +1738,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
               "column": 0
             },
             "end": {
-              "line": 46,
+              "line": 47,
               "column": 0
             }
           },
@@ -1754,7 +1761,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [45, 13]]]]],
+        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [46, 13]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -1773,7 +1780,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
             "column": 0
           },
           "end": {
-            "line": 47,
+            "line": 48,
             "column": 0
           }
         },
@@ -1796,7 +1803,7 @@ define("taste-or-waste-template/components/food-snippet/template", ["exports"], 
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "fridge"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [46, 7]]]]],
+      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "fridge"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [47, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -1809,7 +1816,6 @@ define('taste-or-waste-template/components/freezer-snippet/component', ['exports
     actions: {
       updateFood: function updateFood() {
         console.log('Component Action : updateFood');
-        debugger;
         this.set('food.storage', _ember['default'].$('select').val());
         this.set('food.disposal', _ember['default'].$('select').val());
         this.set('food.expirationDate', new Date(this.get('food.expirationDate')));
@@ -1844,11 +1850,11 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
                   "source": null,
                   "start": {
                     "line": 6,
-                    "column": 6
+                    "column": 4
                   },
                   "end": {
                     "line": 6,
-                    "column": 91
+                    "column": 105
                   }
                 },
                 "moduleName": "taste-or-waste-template/components/freezer-snippet/template.hbs"
@@ -1872,7 +1878,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
                 morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 1, 1);
                 return morphs;
               },
-              statements: [["inline", "formatDate", [["get", "food.expirationDate", ["loc", [null, [6, 66], [6, 85]]]]], [], ["loc", [null, [6, 53], [6, 87]]]]],
+              statements: [["inline", "moment-format", [["get", "food.expirationDate", ["loc", [null, [6, 67], [6, 86]]]], "MM/DD/YYYY"], [], ["loc", [null, [6, 51], [6, 101]]]]],
               locals: [],
               templates: []
             };
@@ -1888,7 +1894,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
                   "column": 4
                 },
                 "end": {
-                  "line": 13,
+                  "line": 14,
                   "column": 4
                 }
               },
@@ -1916,9 +1922,17 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n      ");
+              var el1 = dom.createTextNode("\n    ");
               dom.appendChild(el0, el1);
               var el1 = dom.createComment("");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n    ");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("p");
+              var el2 = dom.createTextNode("expire in: ");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createComment("");
+              dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
@@ -1955,19 +1969,20 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               return el0;
             },
             buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-              var element4 = dom.childAt(fragment, [7]);
-              var element5 = dom.childAt(fragment, [9]);
-              var element6 = dom.childAt(fragment, [11]);
-              var morphs = new Array(6);
+              var element4 = dom.childAt(fragment, [9]);
+              var element5 = dom.childAt(fragment, [11]);
+              var element6 = dom.childAt(fragment, [13]);
+              var morphs = new Array(7);
               morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
               morphs[1] = dom.createMorphAt(dom.childAt(fragment, [3]), 1, 1);
               morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
-              morphs[3] = dom.createElementMorph(element4);
-              morphs[4] = dom.createElementMorph(element5);
-              morphs[5] = dom.createElementMorph(element6);
+              morphs[3] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
+              morphs[4] = dom.createElementMorph(element4);
+              morphs[5] = dom.createElementMorph(element5);
+              morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 14], [4, 27]]]], ["content", "food.description", ["loc", [null, [5, 20], [5, 40]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 98]]]], ["element", "action", ["editClick"], [], ["loc", [null, [7, 14], [7, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [8, 14], [8, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 14], [9, 39]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 14], [4, 27]]]], ["content", "food.description", ["loc", [null, [5, 20], [5, 40]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 10], [6, 29]]]]], [], 0, null, ["loc", [null, [6, 4], [6, 112]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 36], [7, 55]]]]], [], ["loc", [null, [7, 18], [7, 57]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 14], [8, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [9, 14], [9, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [10, 14], [10, 39]]]]],
             locals: [],
             templates: [child0]
           };
@@ -1980,11 +1995,11 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 13,
+                  "line": 14,
                   "column": 4
                 },
                 "end": {
-                  "line": 29,
+                  "line": 30,
                   "column": 6
                 }
               },
@@ -2101,7 +2116,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               morphs[3] = dom.createElementMorph(element3);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [14, 14], [14, 27]]]], ["content", "food.description", ["loc", [null, [15, 21], [15, 41]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [25, 45], [25, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [26, 45], [26, 68]]]]],
+            statements: [["content", "food.name", ["loc", [null, [15, 14], [15, 27]]]], ["content", "food.description", ["loc", [null, [16, 21], [16, 41]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 45], [27, 68]]]]],
             locals: [],
             templates: []
           };
@@ -2117,7 +2132,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
                 "column": 2
               },
               "end": {
-                "line": 30,
+                "line": 31,
                 "column": 6
               }
             },
@@ -2140,7 +2155,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "unless", [["get", "isDispose", ["loc", [null, [3, 14], [3, 23]]]]], [], 0, 1, ["loc", [null, [3, 4], [29, 17]]]]],
+          statements: [["block", "unless", [["get", "isDispose", ["loc", [null, [3, 14], [3, 23]]]]], [], 0, 1, ["loc", [null, [3, 4], [30, 17]]]]],
           locals: [],
           templates: [child0, child1]
         };
@@ -2153,11 +2168,11 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             "loc": {
               "source": null,
               "start": {
-                "line": 30,
+                "line": 31,
                 "column": 6
               },
               "end": {
-                "line": 45,
+                "line": 46,
                 "column": 2
               }
             },
@@ -2271,7 +2286,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             morphs[4] = dom.createElementMorph(element1);
             return morphs;
           },
-          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [37, 31], [37, 40]]]]], [], []]], ["loc", [null, [37, 17], [37, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [38, 38], [38, 54]]]]], [], []]], ["loc", [null, [38, 24], [38, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [39, 42], [39, 61]]]]], [], []]], ["loc", [null, [39, 28], [39, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [41, 47], [41, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [42, 47], [42, 70]]]]],
+          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [42, 47], [42, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [43, 47], [43, 70]]]]],
           locals: [],
           templates: []
         };
@@ -2290,7 +2305,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
               "column": 0
             },
             "end": {
-              "line": 46,
+              "line": 47,
               "column": 0
             }
           },
@@ -2313,7 +2328,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [45, 13]]]]],
+        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [46, 13]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -2332,7 +2347,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
             "column": 0
           },
           "end": {
-            "line": 47,
+            "line": 48,
             "column": 0
           }
         },
@@ -2355,7 +2370,7 @@ define("taste-or-waste-template/components/freezer-snippet/template", ["exports"
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "freezer"], [], ["loc", [null, [1, 6], [1, 33]]]]], [], 0, null, ["loc", [null, [1, 0], [46, 7]]]]],
+      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "freezer"], [], ["loc", [null, [1, 6], [1, 33]]]]], [], 0, null, ["loc", [null, [1, 0], [47, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -3247,11 +3262,11 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
                   "source": null,
                   "start": {
                     "line": 6,
-                    "column": 6
+                    "column": 4
                   },
                   "end": {
                     "line": 6,
-                    "column": 91
+                    "column": 105
                   }
                 },
                 "moduleName": "taste-or-waste-template/components/pantry-snippet/template.hbs"
@@ -3275,7 +3290,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
                 morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 1, 1);
                 return morphs;
               },
-              statements: [["inline", "formatDate", [["get", "food.expirationDate", ["loc", [null, [6, 66], [6, 85]]]]], [], ["loc", [null, [6, 53], [6, 87]]]]],
+              statements: [["inline", "moment-format", [["get", "food.expirationDate", ["loc", [null, [6, 67], [6, 86]]]], "MM/DD/YYYY"], [], ["loc", [null, [6, 51], [6, 101]]]]],
               locals: [],
               templates: []
             };
@@ -3291,7 +3306,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
                   "column": 4
                 },
                 "end": {
-                  "line": 13,
+                  "line": 14,
                   "column": 4
                 }
               },
@@ -3319,9 +3334,17 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               var el2 = dom.createComment("");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
-              var el1 = dom.createTextNode("\n      ");
+              var el1 = dom.createTextNode("\n    ");
               dom.appendChild(el0, el1);
               var el1 = dom.createComment("");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n    ");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("p");
+              var el2 = dom.createTextNode("expire in: ");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createComment("");
+              dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n      ");
               dom.appendChild(el0, el1);
@@ -3358,19 +3381,20 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               return el0;
             },
             buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-              var element4 = dom.childAt(fragment, [7]);
-              var element5 = dom.childAt(fragment, [9]);
-              var element6 = dom.childAt(fragment, [11]);
-              var morphs = new Array(6);
+              var element4 = dom.childAt(fragment, [9]);
+              var element5 = dom.childAt(fragment, [11]);
+              var element6 = dom.childAt(fragment, [13]);
+              var morphs = new Array(7);
               morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
               morphs[1] = dom.createMorphAt(dom.childAt(fragment, [3]), 1, 1);
               morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
-              morphs[3] = dom.createElementMorph(element4);
-              morphs[4] = dom.createElementMorph(element5);
-              morphs[5] = dom.createElementMorph(element6);
+              morphs[3] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
+              morphs[4] = dom.createElementMorph(element4);
+              morphs[5] = dom.createElementMorph(element5);
+              morphs[6] = dom.createElementMorph(element6);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [4, 14], [4, 27]]]], ["content", "food.description", ["loc", [null, [5, 20], [5, 40]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 12], [6, 31]]]]], [], 0, null, ["loc", [null, [6, 6], [6, 98]]]], ["element", "action", ["editClick"], [], ["loc", [null, [7, 14], [7, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [8, 14], [8, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [9, 14], [9, 39]]]]],
+            statements: [["content", "food.name", ["loc", [null, [4, 14], [4, 27]]]], ["content", "food.description", ["loc", [null, [5, 20], [5, 40]]]], ["block", "if", [["get", "food.expirationDate", ["loc", [null, [6, 10], [6, 29]]]]], [], 0, null, ["loc", [null, [6, 4], [6, 112]]]], ["inline", "moment-from-now", [["get", "food.expirationDate", ["loc", [null, [7, 36], [7, 55]]]]], [], ["loc", [null, [7, 18], [7, 57]]]], ["element", "action", ["editClick"], [], ["loc", [null, [8, 14], [8, 36]]]], ["element", "action", ["destroyFood"], [], ["loc", [null, [9, 14], [9, 38]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [10, 14], [10, 39]]]]],
             locals: [],
             templates: [child0]
           };
@@ -3383,11 +3407,11 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 13,
+                  "line": 14,
                   "column": 4
                 },
                 "end": {
-                  "line": 29,
+                  "line": 30,
                   "column": 6
                 }
               },
@@ -3504,7 +3528,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               morphs[3] = dom.createElementMorph(element3);
               return morphs;
             },
-            statements: [["content", "food.name", ["loc", [null, [14, 14], [14, 27]]]], ["content", "food.description", ["loc", [null, [15, 21], [15, 41]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [25, 45], [25, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [26, 45], [26, 68]]]]],
+            statements: [["content", "food.name", ["loc", [null, [15, 14], [15, 27]]]], ["content", "food.description", ["loc", [null, [16, 21], [16, 41]]]], ["element", "action", ["disposeClick"], [], ["loc", [null, [26, 45], [26, 70]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [27, 45], [27, 68]]]]],
             locals: [],
             templates: []
           };
@@ -3520,7 +3544,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
                 "column": 2
               },
               "end": {
-                "line": 30,
+                "line": 31,
                 "column": 6
               }
             },
@@ -3543,7 +3567,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["block", "unless", [["get", "isDispose", ["loc", [null, [3, 14], [3, 23]]]]], [], 0, 1, ["loc", [null, [3, 4], [29, 17]]]]],
+          statements: [["block", "unless", [["get", "isDispose", ["loc", [null, [3, 14], [3, 23]]]]], [], 0, 1, ["loc", [null, [3, 4], [30, 17]]]]],
           locals: [],
           templates: [child0, child1]
         };
@@ -3556,11 +3580,11 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             "loc": {
               "source": null,
               "start": {
-                "line": 30,
+                "line": 31,
                 "column": 6
               },
               "end": {
-                "line": 45,
+                "line": 46,
                 "column": 2
               }
             },
@@ -3674,7 +3698,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             morphs[4] = dom.createElementMorph(element1);
             return morphs;
           },
-          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [37, 31], [37, 40]]]]], [], []]], ["loc", [null, [37, 17], [37, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [38, 38], [38, 54]]]]], [], []]], ["loc", [null, [38, 24], [38, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [39, 42], [39, 61]]]]], [], []]], ["loc", [null, [39, 28], [39, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [41, 47], [41, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [42, 47], [42, 70]]]]],
+          statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.name", ["loc", [null, [38, 31], [38, 40]]]]], [], []]], ["loc", [null, [38, 17], [38, 42]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.description", ["loc", [null, [39, 38], [39, 54]]]]], [], []]], ["loc", [null, [39, 24], [39, 56]]]], ["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "food.expirationDate", ["loc", [null, [40, 42], [40, 61]]]]], [], []]], ["loc", [null, [40, 28], [40, 63]]]], ["element", "action", ["editClick"], [], ["loc", [null, [42, 47], [42, 69]]]], ["element", "action", ["updateFood"], [], ["loc", [null, [43, 47], [43, 70]]]]],
           locals: [],
           templates: []
         };
@@ -3693,7 +3717,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
               "column": 0
             },
             "end": {
-              "line": 46,
+              "line": 47,
               "column": 0
             }
           },
@@ -3716,7 +3740,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [45, 13]]]]],
+        statements: [["block", "unless", [["get", "isEditable", ["loc", [null, [2, 12], [2, 22]]]]], [], 0, 1, ["loc", [null, [2, 2], [46, 13]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -3735,7 +3759,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
             "column": 0
           },
           "end": {
-            "line": 47,
+            "line": 48,
             "column": 0
           }
         },
@@ -3758,7 +3782,7 @@ define("taste-or-waste-template/components/pantry-snippet/template", ["exports"]
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "pantry"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [46, 7]]]]],
+      statements: [["block", "if", [["subexpr", "eq", [["get", "food.storage", ["loc", [null, [1, 10], [1, 22]]]], "pantry"], [], ["loc", [null, [1, 6], [1, 32]]]]], [], 0, null, ["loc", [null, [1, 0], [47, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -4423,7 +4447,7 @@ define('taste-or-waste-template/food/model', ['exports', 'ember-data'], function
     name: _emberData['default'].attr('string'),
     description: _emberData['default'].attr('string'),
     purchasedDate: _emberData['default'].attr('date'),
-    expirationDate: _emberData['default'].attr('date'),
+    expirationDate: _emberData['default'].attr('utc'),
     remindDate: _emberData['default'].attr('date')
   });
 });
@@ -5520,6 +5544,17 @@ define("taste-or-waste-template/templates/components/radio-button", ["exports"],
     };
   })());
 });
+define("taste-or-waste-template/transforms/utc", ["exports", "ember-data", "moment"], function (exports, _emberData, _moment) {
+  exports["default"] = _emberData["default"].Transform.extend({
+    serialize: function serialize(value) {
+      return value ? value.toJSON() : null;
+    },
+
+    deserialize: function deserialize(value) {
+      return _moment["default"].utc(value);
+    }
+  });
+});
 define('taste-or-waste-template/user/model', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
     email: _emberData['default'].attr('string')
@@ -5663,7 +5698,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+5b968465"});
+  require("taste-or-waste-template/app")["default"].create({"name":"taste-or-waste-template","version":"0.0.0+08aa025c"});
 }
 
 /* jshint ignore:end */
