@@ -6,7 +6,7 @@
       {{#if food.expirationDate}}<p>expiration date: {{moment-format food.expirationDate "MM/DD/YYYY"}}</p>{{/if}}
       <p>expire in: {{moment-from-now food.expirationDate}}</p>
       <button class="btn btn-primary btn-sm" {{action 'editClick'}}>EDIT</button>
-      <button  class="btn btn-primary btn-sm divider"{{action 'disposeClick'}}>DISPOSE</button>
+      <button class="btn btn-primary btn-sm divider"{{action 'disposeClick'}}>DISPOSE</button>
       <button class="btn btn-danger btn-sm divider" {{action 'destroyFood'}}>DELETE</button>
       <br>
       <hr>

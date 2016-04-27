@@ -3,16 +3,20 @@
     <p>name: {{food.name}}</p>
     <p>description: {{food.description}}</p>
     <br>
-    <button {{action 'editClick'}}>Put back in storage</button>
-    <button {{action 'destroyFood'}}>Delete</button>
-    <button {{action 'disposeClick'}}>Change disposal</button>
+    <button class="btn btn-info btn-xs" {{action 'editClick'}}>Put back in storage</button>
+    <br>
+    <br>
+    <button class="btn btn-primary btn-xs" {{action 'disposeClick'}}>Change disposal</button>
+    <br>
+    <br>
+    <button class="btn btn-danger btn-xs"{{action 'destroyFood'}}>Delete</button>
     <br>
     <br>
     <hr>
     {{else}}
       <h5>Name: {{food.name}}</h5>
-      <h5>Description: {{food.description}}</h5>
-      <h5>How did you dispose of your food ?</h5>
+      <p>Description: {{food.description}}</p>
+      <p>How did you dispose of your food ?</p>
       <select name="disposal">
           <option class="disposal" value="">Choose the disposal location</option>
           <option class="disposal" value=ate>Ate</option>
@@ -21,17 +25,17 @@
       </select>
       <br>
       <br>
-      <button class="btn btn-primary btn-xs"{{action 'disposeClick'}}>Cancel</button>
-      <button class="btn btn-primary btn-xs"{{action 'updateFood'}}>Change Disposal</button>
+      <button class="btn btn-warning btn-xs"{{action 'disposeClick'}}>Cancel</button>
+      <button class="btn btn-warning btn-xs"{{action 'updateFood'}}>Change Disposal</button>
       <br>
       <br>
       <hr>
       {{/unless}}
       {{else}}
       <h5>Name: {{food.name}}</h5>
-      <h5>Description: {{food.description}}</h5>
-      <h5>Did you accidentally disposed your food?</h5>
-      <h5>Where did you store your food</h5>
+      <p>Description: {{food.description}}</p>
+      <p>Did you accidentally disposed your food?</p>
+      <p>Where did you store your food</p>
       <select name="storage">
           <option class="storage" value="">Choose the storage location</option>
           <option value="storage" value=fridge>fridge</option>
@@ -40,8 +44,8 @@
       </select>
       <br>
       <br>
-      <button class="btn btn-primary btn-xs"{{action 'editClick'}}>Cancel</button>
-      <button class="btn btn-primary btn-xs"{{action 'updateFood'}}>Put back in storage</button>
+      <button class="btn btn-warning btn-xs"{{action 'editClick'}}>Cancel</button>
+      <button class="btn btn-warning btn-xs"{{action 'updateFood'}}>Put back in storage</button>
       <br>
       <br>
       <hr>
